@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL高级应用 | 朱海的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL高级应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL高级应用">
+<meta property="og:url" content="https://zhuhai.github.io/2017/03/24/MySQL高级应用/index.html">
+<meta property="og:site_name" content="朱海的博客">
+<meta property="og:description" content="MySQL高级应用">
+<meta property="og:updated_time" content="2017-03-24T10:30:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL高级应用">
+<meta name="twitter:description" content="MySQL高级应用">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">朱海</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一个热爱生活，喜欢折腾的小码农</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">首页</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:&#104;&#112;&#117;&#122;&#104;&#117;&#104;&#97;&#105;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/zhuhai" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/zhuhai386" title="weibo">weibo</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/hpuhai" title="twitter">twitter</a>
+                            
+                                <a class="fl facebook" target="_blank" href="https://www.facebook.com/hpuzhuhai" title="facebook">facebook</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.github.com/zhuhai">github</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://hpuzhuhai.iteye.com">iteye</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://zhuhai.farbox.com">farbox</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">热爱生活，喜欢接触新鲜事物、迎接新的挑战，不断提升自我，用程序去创造美好生活</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">朱海</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">朱海</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一个热爱生活，喜欢折腾的小码农</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">首页</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:&#104;&#112;&#117;&#122;&#104;&#117;&#104;&#97;&#105;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/zhuhai" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/zhuhai386" title="weibo">weibo</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/hpuhai" title="twitter">twitter</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/hpuzhuhai" title="facebook">facebook</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-MySQL高级应用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/24/MySQL高级应用/" class="article-date">
+      <time datetime="2017-03-24T10:30:00.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL高级应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><blockquote>
+<p>1.什么是视图</p>
+</blockquote>
+<p>视图是虚拟的表，与包含数据的表是不一样的，视图只包含使用时动态检索数据的查询，而本身不包含任何数据。</p>
+<blockquote>
+<p>2.为什么使用视图</p>
+</blockquote>
+<ul>
+<li>使用视图可以重用SQL语句；</li>
+<li>可以简化复杂的SQL操作；</li>
+<li>使用表的组成部分，而不是整个表；</li>
+<li>保护数据，可以给用户授予表的特定部分的权限而不是整个表的访问权限；</li>
+<li>更改数据格式和表示；</li>
+</ul>
+<blockquote>
+<p>3.视图的使用规则与限制</p>
+</blockquote>
+<ol>
+<li>与表一样，视图必须唯一命名；</li>
+<li>在一个数据库中，视图的数量没有限制；</li>
+<li>视图可以嵌套，及可以使用从其他视图中查询出来的数据创建新的视图；</li>
+<li>Order by可以用在视图中，但如果从该视图检索数据的select也含有Order by，那么视图中的Order by会被覆盖掉；</li>
+<li>视图不能有索引，也不能有关联的触发器和默认值；</li>
+<li>视图和表可以一起使用，例如编写一条联接表和视图的查询；</li>
+</ol>
+<blockquote>
+<p>4.创建视图</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> v_user <span class="keyword">as</span> <span class="keyword">select</span> <span class="keyword">id</span>,username,<span class="keyword">password</span> <span class="keyword">from</span> t_user;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>5.使用视图(查询跟普通表一样)</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> v_user;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>6.删除视图</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">view</span> v_user;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>7.视图的更新</p>
+</blockquote>
+<ul>
+<li>对视图进行insert、update、delete操作会影响其基表，因为视图中不包含任何数据；</li>
+<li>不是所有的视图都可以更新<ol>
+<li>含有分组(group by和having)；</li>
+<li>联接查询；</li>
+<li>子查询；</li>
+<li>聚合函数；</li>
+<li>DISTINCT</li>
+</ol>
+</li>
+<li>不是迫不得已，不要对视图进行更新操作，效率低，视图主要用于查询</li>
+</ul>
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><blockquote>
+<p>1.什么是存储过程</p>
+</blockquote>
+<p>存储过程指的是一组为了完成某一特定功能而编写的并运行在数据库端的SQL集。</p>
+<blockquote>
+<p>2.使用存储过程的优点</p>
+</blockquote>
+<ol>
+<li>通过把处理封装在简单易用的单元中，简化复杂的操作；</li>
+<li>提高性能，使用存储过程比单独使用SQL语句要快；</li>
+<li>安全，调用只需要调用指定的存储过程即可，不用关心存储过程的内容。</li>
+</ol>
+<blockquote>
+<p>3.使用存储过程的缺点</p>
+</blockquote>
+<ol>
+<li>编写复杂；</li>
+<li>如果没有相应的权限，你将无法创建存储过程；</li>
+</ol>
+<blockquote>
+<p>4.创建存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DELIMITER//</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> productavg()</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">select</span> companyname <span class="keyword">from</span> t_company;</div><div class="line"><span class="keyword">END</span>//</div><div class="line">DELIMITER;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>5.调用存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">call</span> productavg();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>6.带返回值的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DELIMITER//</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> productpricing(<span class="keyword">OUT</span> pl <span class="built_in">DECIMAL</span>(<span class="number">6</span>,<span class="number">2</span>),<span class="keyword">OUT</span> ph <span class="built_in">DECIMAL</span>(<span class="number">6</span>,<span class="number">2</span>),<span class="keyword">OUT</span> pa <span class="built_in">DECIMAL</span>(<span class="number">6</span>,<span class="number">2</span>)) <span class="comment">/* OUT代表是返回值参数，pl是变量名，DECIMAL是数据类型，表示整数部分6位，小数部分2位 */</span></div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">MIN</span>(prod_price) <span class="keyword">INTO</span> pl <span class="keyword">from</span> t_products; <span class="comment">/* INTO表示将值赋给变量Pl */</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">MAX</span>(prod_price) <span class="keyword">INTO</span> ph <span class="keyword">from</span> t_products;</div><div class="line"><span class="keyword">select</span> <span class="keyword">AVG</span>(prod_price) <span class="keyword">INTO</span> pa <span class="keyword">from</span> t_products;</div><div class="line"><span class="keyword">END</span>//</div><div class="line">DELIMITER;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>7.调用带返回值的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">call</span> productpricing(@pricelow,@priceheight,@priceavg);</div><div class="line"><span class="keyword">select</span> @pricelow,@priceheight,@priceavg;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>8.带传入参数的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DELIMITER//</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> getcompanyname(<span class="keyword">OUT</span> cname <span class="built_in">varchar</span>(<span class="number">50</span>),<span class="keyword">IN</span> cid <span class="built_in">int</span>) <span class="comment">/* IN表示传入参数 */</span></div><div class="line"><span class="keyword">BEGIN</span></div><div class="line"><span class="keyword">select</span> companyname <span class="keyword">INTO</span> cname <span class="keyword">from</span> t_company <span class="keyword">where</span> <span class="keyword">id</span>=cid;</div><div class="line"><span class="keyword">END</span>//</div><div class="line">DELIMITER;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>9.调用带传入参数的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">call</span> getcompanyname(@<span class="keyword">name</span>,<span class="number">3</span>);</div><div class="line"><span class="keyword">select</span> @<span class="keyword">name</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>10.有选择流程的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line"><span class="comment">/* ordernum表示订单号，tax表示是否需要缴税，total表示总金额 */</span></div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> ordertotaltax(<span class="keyword">IN</span> ordernum <span class="built_in">int</span>,<span class="keyword">IN</span> tax booble,<span class="keyword">OUT</span> total DECIMA(<span class="number">8</span>,<span class="number">2</span>))</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">declare</span> ordertotal <span class="built_in">decimal</span>(<span class="number">8</span>,<span class="number">2</span>);<span class="comment">/* 声明变量：总金额 */</span></div><div class="line"><span class="keyword">declare</span> taxvalue <span class="built_in">float</span> <span class="keyword">default</span> <span class="number">0.6</span>;<span class="comment">/* 声明变量：税率 */</span></div><div class="line"><span class="comment">/* 计算指定的订单的定价 */</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(item_price*quantity) <span class="keyword">into</span> ordertotal <span class="keyword">from</span> orderitems  <span class="keyword">where</span> order_num=ordernum;</div><div class="line"><span class="comment">/* 如果需要缴税 */</span></div><div class="line">if tax then</div><div class="line"><span class="keyword">select</span> ordertotal+(ordertotal*taxvalue) <span class="keyword">into</span> ordertotal;</div><div class="line"><span class="keyword">end</span> <span class="keyword">if</span>;</div><div class="line"><span class="comment">/* 将当前的总价赋值给返回参数*/</span></div><div class="line"><span class="keyword">select</span> ordertotal <span class="keyword">into</span> total;</div><div class="line"><span class="keyword">end</span> //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>11.调用有选择流程的存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 调用缴税 */</span></div><div class="line"><span class="keyword">call</span> ordertotaltax(<span class="number">20005</span>,<span class="number">1</span>,@total);</div><div class="line"><span class="keyword">select</span> @total;</div><div class="line"><span class="comment">/* 调用（不交税）*/</span></div><div class="line"><span class="keyword">call</span> ordertotaltax(<span class="number">20005</span>,<span class="number">0</span>,@total);</div><div class="line"><span class="keyword">select</span> @total;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>12.存储过程中的if语句</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line">create procedure iftest(out result int)</div><div class="line">begin</div><div class="line">declare id int default 12;</div><div class="line">if id=10 then</div><div class="line">set result=0;</div><div class="line">elseif id&lt;10 then</div><div class="line">set result=1;</div><div class="line">else</div><div class="line">set result=2;</div><div class="line">end if;</div><div class="line">end //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>13.存储过程中的循环语句</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line">create procedure whiletest()</div><div class="line">begin</div><div class="line">declare num int;</div><div class="line">declare total int default 0;</div><div class="line">set num=0;</div><div class="line">while num&lt;10 do</div><div class="line"> set total=total+num;</div><div class="line"> set num=num+1;</div><div class="line">end while;</div><div class="line">select total;</div><div class="line">end //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>14.删除存储过程</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">procedure</span> whiletest;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Java调用存储过程</strong></p>
+</blockquote>
+<p>使用CallableStatement对象<br>例如：</p>
+<p>1.插入一条记录</p>
+<p>sql代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> <span class="keyword">insert</span>(<span class="keyword">in</span> username <span class="built_in">varchar</span>(<span class="number">50</span>),<span class="keyword">in</span> <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">50</span>))</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username,<span class="keyword">password</span>) <span class="keyword">values</span>(username,<span class="keyword">password</span>);</div><div class="line"><span class="keyword">end</span> //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<p>java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">package</span> com.zhuhai;</div><div class="line"><span class="keyword">import</span> java.sql.CallableStatement;</div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">final</span> String DRIVER=<span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">		<span class="keyword">final</span> String URL=<span class="string">"jdbc:mysql:///test"</span>;</div><div class="line">		<span class="keyword">final</span> String NAME=<span class="string">"root"</span>;</div><div class="line">		<span class="keyword">final</span> String PASSWORD=<span class="string">"root"</span>;</div><div class="line">		Connection conn=<span class="keyword">null</span>;</div><div class="line">		CallableStatement cs=<span class="keyword">null</span>;		</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Class.forName(DRIVER);</div><div class="line">			conn=DriverManager.getConnection(URL, NAME, PASSWORD);</div><div class="line">			cs=conn.prepareCall(<span class="string">"&#123;call insertUser(?,?)&#125;"</span>);</div><div class="line">			cs.setString(<span class="number">1</span>, <span class="string">"aa"</span>);</div><div class="line">			cs.setString(<span class="number">2</span>, <span class="string">"000"</span>);</div><div class="line">			cs.executeUpdate();</div><div class="line">			</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				<span class="keyword">if</span>(cs!=<span class="keyword">null</span>)&#123;</div><div class="line">					cs.close();</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;<span class="keyword">finally</span>&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</div><div class="line">						conn.close();</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.查询数据</p>
+<p>SQL代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> findUser()</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">id</span>,username,<span class="keyword">password</span> <span class="keyword">from</span> t_user;</div><div class="line"><span class="keyword">end</span> //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<p>java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zhuhai;</div><div class="line"><span class="keyword">import</span> java.sql.CallableStatement;</div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.ResultSet;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> String DRIVER=<span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">		<span class="keyword">final</span> String URL=<span class="string">"jdbc:mysql:///test"</span>;	</div><div class="line">		<span class="keyword">final</span> String NAME=<span class="string">"root"</span>;</div><div class="line">		<span class="keyword">final</span> String PASSWORD=<span class="string">"root"</span>;		</div><div class="line">		Connection conn=<span class="keyword">null</span>;</div><div class="line">		CallableStatement cs=<span class="keyword">null</span>;		</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Class.forName(DRIVER);</div><div class="line">			conn=DriverManager.getConnection(URL, NAME, PASSWORD);</div><div class="line">			cs=conn.prepareCall(<span class="string">"&#123;call findUser()&#125;"</span>);</div><div class="line">			ResultSet rs=cs.executeQuery();</div><div class="line">			<span class="keyword">while</span>(rs.next())&#123;</div><div class="line">				<span class="keyword">int</span> id=rs.getInt(<span class="string">"id"</span>);</div><div class="line">				String username=rs.getString(<span class="string">"username"</span>);</div><div class="line">				String password=rs.getString(<span class="string">"password"</span>);</div><div class="line">				System.out.println(id+<span class="string">" "</span>+username+<span class="string">" "</span>+password);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				<span class="keyword">if</span>(cs!=<span class="keyword">null</span>)&#123;</div><div class="line">					cs.close();</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;<span class="keyword">finally</span>&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</div><div class="line">						conn.close();</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.java调用带返回值的存储过程</p>
+<p>SQL代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">DELIMITER //</div><div class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> insert_getId(<span class="keyword">in</span> username <span class="built_in">varchar</span>(<span class="number">50</span>),<span class="keyword">in</span> <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">50</span>),<span class="keyword">out</span> <span class="keyword">id</span> <span class="built_in">int</span>)</div><div class="line"><span class="keyword">begin</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username,<span class="keyword">password</span>) <span class="keyword">values</span>(username,<span class="keyword">password</span>);</div><div class="line"><span class="keyword">select</span> <span class="keyword">LAST_INSERT_ID</span>() <span class="keyword">into</span> <span class="keyword">id</span>;</div><div class="line"><span class="keyword">end</span> //</div><div class="line">DELIMITER ;</div></pre></td></tr></table></figure>
+<p>java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zhuhai;</div><div class="line"><span class="keyword">import</span> java.sql.CallableStatement;</div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"><span class="keyword">import</span> java.sql.Types;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> String DRIVER=<span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">		<span class="keyword">final</span> String URL=<span class="string">"jdbc:mysql:///test"</span>;</div><div class="line">		<span class="keyword">final</span> String NAME=<span class="string">"root"</span>;</div><div class="line">		<span class="keyword">final</span> String PASSWORD=<span class="string">"root"</span>;</div><div class="line">		Connection conn=<span class="keyword">null</span>;</div><div class="line">		CallableStatement cs=<span class="keyword">null</span>;		</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Class.forName(DRIVER);</div><div class="line">			conn=DriverManager.getConnection(URL, NAME, PASSWORD);</div><div class="line">			cs=conn.prepareCall(<span class="string">"&#123;call insert_getId(?,?,?)&#125;"</span>);</div><div class="line">			cs.setString(<span class="number">1</span>, <span class="string">"bb"</span>);</div><div class="line">			cs.setString(<span class="number">2</span>, <span class="string">"123456"</span>);</div><div class="line">			cs.registerOutParameter(<span class="number">3</span>, Types.INTEGER);</div><div class="line">			cs.executeUpdate();</div><div class="line">			<span class="keyword">int</span> id=cs.getInt(<span class="number">3</span>);</div><div class="line">			System.out.println(id);</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				<span class="keyword">if</span>(cs!=<span class="keyword">null</span>)&#123;</div><div class="line">					cs.close();</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;<span class="keyword">finally</span>&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</div><div class="line">						conn.close();</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h2><blockquote>
+<p>1.什么是触发器</p>
+</blockquote>
+<p>触发器是MySQL执行insert、update、delete语句时自动执行的一条SQL语句，只有表支持触发器，视图不支持触发器。</p>
+<blockquote>
+<p>2.触发器需要的信息</p>
+</blockquote>
+<ol>
+<li>唯一的触发器名称(一个表中的触发器名称唯一，而不是一个数据库中的触发器名称唯一)；</li>
+<li>触发器关联的表；</li>
+<li>触发器应该响应的事件（insert、update、delete）；</li>
+<li>触发器何时执行（处理之前或之后）；</li>
+<li>一个表的一个事件最多有两个触发器（处理之前和处理之后），所以一个表最多有六个触发器；</li>
+<li>如果响应之前的触发器执行失败，响应则不会执行；响应之前的触发器或响应执行失败，则响应之后的触发器则不会执行；</li>
+</ol>
+<blockquote>
+<p>3.insert触发器</p>
+</blockquote>
+<ol>
+<li>在Insert触发器内，可引用一个名为NEW的虚拟表，访问被插入的行；</li>
+<li>在before insert触发器中，NEW中的值也可以被更新(运行更改被插入的值);</li>
+<li>对于自动增长列，NEW在insert执行之前的值为0，在执行之后是新的自动生成的值；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> tr_insert</div><div class="line"><span class="keyword">after</span> <span class="keyword">insert</span> <span class="keyword">on</span> t_user</div><div class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user_backup(<span class="keyword">name</span>) <span class="keyword">values</span>(new.username);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>4.delete触发器</p>
+</blockquote>
+<ol>
+<li>在delete触发器代码中，可以引用一个old的虚拟表，访问被删除的行；</li>
+<li>old表中的值全部是只读的，不能更新；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> tr_delete</div><div class="line"><span class="keyword">after</span> <span class="keyword">delete</span> <span class="keyword">on</span> t_user</div><div class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> t_user_backup <span class="keyword">where</span> username=old.username;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>5.update触发器</p>
+</blockquote>
+<ol>
+<li>在update触发器代码中，可以引用一个名为old的虚拟表访问以前的值，引用一个名为NEW的表访问新更新的值；</li>
+<li>在before update触发器中，new表中的值允许被更新（允许更改将要用于update语句中的值）；</li>
+<li>old表中的值都是只读的，不能更新；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> tr_update</div><div class="line"><span class="keyword">after</span> <span class="keyword">update</span> <span class="keyword">on</span> t_user</div><div class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line">upadte t_user_backup <span class="keyword">set</span> username=new.username <span class="keyword">where</span> username=old.username;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>6.删除触发器</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">trigger</span> tr_insert;</div></pre></td></tr></table></figure>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ul>
+<li>在MySQL中只有使用了Innodb数据库引擎的数据库或表才支持事务；</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的MySQL操作要么完全执行，要么完全不执行；</li>
+<li>事务用来管理insert、update、delete语句；</li>
+</ul>
+<blockquote>
+<p>关于事务的术语</p>
+</blockquote>
+<ul>
+<li>事务(transaction)：指一组SQL语句；</li>
+<li>回滚(rollback)：指撤销指定SQL语句的过程；</li>
+<li>提交(commit)：指将未存储的SQL语句结果写入到数据库中；</li>
+<li>保留点(savepoint)：指事务处理中设置的临时占位符，可以对它进行回滚；</li>
+<li>事务处理的关键在于将SQL语句组分解为逻辑块，并明确规定数据何时回滚，何时提交；</li>
+</ul>
+<blockquote>
+<p>回滚事务</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">start</span> <span class="keyword">transaction</span>;<span class="comment">/* 开始事务 */</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'aa'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'bb'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'cc'</span>);</div><div class="line"><span class="keyword">rollback</span>;<span class="comment">/* 回滚事务 */</span></div><div class="line"><span class="comment">/* 此时，数据库中没有添加任何数据 */</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>提交事务</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">start</span> <span class="keyword">transaction</span>;<span class="comment">/* 开始事务 */</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'aa'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'bb'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'cc'</span>);</div><div class="line"><span class="keyword">commit</span>;<span class="comment">/* 提交事务*/</span></div><div class="line"><span class="comment">/* 此时数据库中插入三条数据 */</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>保留点</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">start</span> <span class="keyword">transaction</span>;</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'aa'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'bb'</span>);</div><div class="line"><span class="keyword">savepoint</span> s1;<span class="comment">/* 声明一个保留点 */</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> t_user(username) <span class="keyword">values</span>(<span class="string">'cc'</span>);</div><div class="line"><span class="keyword">rollback</span> <span class="keyword">to</span> s1;<span class="comment">/* 回滚到s1保留点*/</span></div><div class="line"><span class="comment">/* 此时只有前两条数据存进数据库，第三条没有存进数据库，也就是说保留点之前的会commit,保留点之后的会rollback */</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>事务的四个特征（ACID属性）</p>
+</blockquote>
+<ol>
+<li>原子性(Atomic):组成事务的处理语句组成了一个逻辑单元，这是最小的执行单位；</li>
+<li>一致性(Consistent)：在事务处理执行之前和之后，数据是一致的；</li>
+<li>隔离性(Isolated):一个事务的处理对另一个事务没有影响；</li>
+<li>持续性(Durable)：当事务处理成功后，其结果在数据库中被永久记录下来；</li>
+</ol>
+<blockquote>
+<p>JDBC中的事务</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.zhuhai;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"><span class="keyword">import</span> java.sql.Savepoint;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">final</span> String DRIVER=<span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">		<span class="keyword">final</span> String URL=<span class="string">"jdbc:mysql:///test"</span>;</div><div class="line">		<span class="keyword">final</span> String NAME=<span class="string">"root"</span>;</div><div class="line">		<span class="keyword">final</span> String PASSWORD=<span class="string">"root"</span>;</div><div class="line">		Connection conn=<span class="keyword">null</span>;</div><div class="line">		PreparedStatement stat=<span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Class.forName(DRIVER);</div><div class="line">			conn=DriverManager.getConnection(URL, NAME, PASSWORD);</div><div class="line">			conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//禁用自动提交模式</span></div><div class="line">			String sql=<span class="string">"insert into t_user(username,password) values('aa','123')"</span>;</div><div class="line">			String sql2=<span class="string">"inserts into t_user(username,password) values('bb','123')"</span>;</div><div class="line">			stat=conn.prepareStatement(sql);</div><div class="line">			stat.executeUpdate();</div><div class="line">			<span class="comment">//设置保留点</span></div><div class="line">			<span class="comment">//Savepoint sp1=conn.setSavepoint();</span></div><div class="line">			stat=conn.prepareStatement(sql2);</div><div class="line">			stat.executeUpdate();</div><div class="line">			<span class="comment">//conn.rollback();</span></div><div class="line">			<span class="comment">//conn.rollback(sp1);回滚到保留点</span></div><div class="line">			conn.commit();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			conn.rollback();</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				<span class="keyword">if</span>(stat!=<span class="keyword">null</span>)&#123;</div><div class="line">					stat.close();</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;<span class="keyword">finally</span>&#123;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)&#123;</div><div class="line">						conn.close();</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引是优化数据库查询速度重要途径；</p>
+<blockquote>
+<p>1.索引类型</p>
+</blockquote>
+<ul>
+<li>普通索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> nameindex <span class="keyword">on</span> t_user(<span class="keyword">name</span>(<span class="number">20</span>));<span class="comment">/* 当类型为varchar时，必须指定它的长度*/</span></div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> nameindex <span class="keyword">on</span> t_user(a,b,c);</div><div class="line"><span class="comment">/* 给a,b,c之列建立一个索引，只有a参与的时候，该索引才会起作用*/</span></div></pre></td></tr></table></figure>
+<ul>
+<li>唯一索引：和普通索引基本相同，但所有的索引列只能出现一次，保持唯一性</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span> <span class="keyword">on</span> t_user(<span class="keyword">name</span>(<span class="number">20</span>));</div></pre></td></tr></table></figure>
+<ul>
+<li>主键索引：主键索引是一种特殊的唯一索引，在建立主键时自动创建</li>
+<li>全文索引：全文索引在varchar或text类型上创建</li>
+</ul>
+<blockquote>
+<p>2.索引的缺点</p>
+</blockquote>
+<ol>
+<li>虽然索引大大提高了查询速度，但会降低更新表的速度，比如表的insert,update,delete操作，因为更新表时，MySQL不仅仅要保存数据，还要保存索引文件；</li>
+<li>建立索引会占用磁盘空间，如果在一个大表上创建了多种索引组合，索引文件会膨胀的很快；</li>
+</ol>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/24/MySQL高级应用/">MySQL高级应用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 朱海 的个人博客">朱海</a></p>
+        <p><span>发布时间:</span>2017年03月24日 - 18时30分</p>
+        <p><span>最后更新:</span>2017年03月24日 - 18时30分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/24/MySQL高级应用/" title="MySQL高级应用">https://zhuhai.github.io/2017/03/24/MySQL高级应用/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://zhuhai.github.io/2017/03/24/MySQL高级应用/　　作者: 朱海" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/23/开篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#视图"><span class="toc-number">1.</span> <span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程"><span class="toc-number">2.</span> <span class="toc-text">存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触发器"><span class="toc-number">3.</span> <span class="toc-text">触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">4.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-number">5.</span> <span class="toc-text">索引</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<!--<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>-->
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/23/开篇/" title="下一篇: 开篇">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/MySQL高级应用/">MySQL高级应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/开篇/">开篇</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 朱海
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 23;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
